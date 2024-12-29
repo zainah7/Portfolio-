@@ -1,0 +1,29 @@
+
+
+  <div class="bg-gradient-to-b from-black to-purple-900 text-gray-300 md:h-screen">
+  <div class="max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full">
+    <div class="pb-8">
+      <p class="text-4xl border-b-4 font-bold inline border-purple-500">Portfolio</p>
+      <p class="py-6">Check out some of my work right here</p>
+    </div>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8 px-12 sm:px-0">
+      <% @portfolios.each do |portfolio| %>
+        <div class="shadow-md shadow-purple-700 rounded-lg group">
+          <%= image_tag portfolio[:src], alt: "Portfolio #{portfolio[:id]}", class: "rounded-md duration-200 transform group-hover:scale-105 transition-all" %>
+          <div class="flex items-center justify-center gap-4 mt-4">
+            <% if portfolio[:demo].present? %>
+              <a href="<%= portfolio[:demo] %>" target="_blank" rel="noopener noreferrer" class="w-1/2 px-6 py-3 m-4 bg-gradient-to-r from-purple-900 to-blue-800 text-white rounded-lg text-center duration-200 hover:scale-105 hover:from-purple-800 hover:to-blue-700 transition-all">
+                Demo
+              </a>
+            <% end %>
+            <% if portfolio[:code].present? %>
+              <a href="<%= portfolio[:code] %>" target="_blank" rel="noopener noreferrer" class="w-1/2 px-6 py-3 m-4 bg-gradient-to-r from-purple-800 to-pink-800 text-white rounded-lg text-center duration-200 hover:scale-105 hover:from-purple-800 hover:to-teal-700 transition-all">
+                Code
+              </a>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
